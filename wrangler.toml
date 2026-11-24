@@ -1,0 +1,22 @@
+name = "zexo-api"
+main = "worker/src/index.js"
+compatibility_date = "2026-11-24"
+
+[assets]
+directory = "."
+binding = "ASSETS"
+not_found_handling = "single-page-application"
+
+[[d1_databases]]
+binding = "DB"
+database_name = "zexo-db"
+database_id = "REPLACE_WITH_D1_DATABASE_ID"
+database_preview_id = "REPLACE_WITH_D1_DATABASE_ID"
+
+[[r2_buckets]]
+binding = "FILES"
+bucket_name = "zexo-files"
+preview_bucket_name = "zexo-files-preview"
+
+[vars]
+ALLOWED_ORIGIN = "https://YOUR-DOMAIN"
