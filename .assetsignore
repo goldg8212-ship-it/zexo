@@ -1,0 +1,9 @@
+node_modules/
+.git/
+.wrangler/
+worker/
+README.md
+package.json
+bun.lock
+bun.lockb
+wrangler.toml
