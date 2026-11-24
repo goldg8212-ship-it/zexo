@@ -11,8 +11,8 @@ run_worker_first = ["/api/*"]
 [[d1_databases]]
 binding = "DB"
 database_name = "zexo-db"
-database_id = "REPLACE_WITH_D1_DATABASE_ID"
-database_preview_id = "REPLACE_WITH_D1_DATABASE_ID"
+database_id = "47999187-c376-4847-be04-7590be5832d8"
+preview_database_id = "47999187-c376-4847-be04-7590be5832d8"
 
 [[r2_buckets]]
 binding = "FILES"
@@ -20,4 +20,4 @@ bucket_name = "zexo-files"
 preview_bucket_name = "zexo-files-preview"
 
 [vars]
-ALLOWED_ORIGIN = "https://YOUR-DOMAIN"
+ALLOWED_ORIGIN = "https://zexoapp18.workers.dev"
