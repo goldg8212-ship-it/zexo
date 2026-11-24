@@ -1,0 +1,14 @@
+{
+  "name": "zexo-marketplace",
+  "version": "0.1.0",
+  "private": true,
+  "description": "ZEXO Minecraft Bedrock marketplace website",
+  "scripts": {
+    "dev": "wrangler dev",
+    "deploy": "wrangler deploy",
+    "db:apply": "wrangler d1 execute zexo-db --remote --file=worker/schema.sql"
+  },
+  "devDependencies": {
+    "wrangler": "^4.0.0"
+  }
+}
