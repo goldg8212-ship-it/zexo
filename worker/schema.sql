@@ -1,0 +1,11 @@
+PRAGMA foreign_keys = ON;
+CREATE TABLE IF NOT EXISTS users (id TEXT PRIMARY KEY,email TEXT NOT NULL UNIQUE,name TEXT NOT NULL,password_hash TEXT NOT NULL,password_salt TEXT NOT NULL,role TEXT NOT NULL DEFAULT 'user' CHECK(role IN ('user','creator','admin')),created_at INTEGER NOT NULL);
+CREATE TABLE IF NOT EXISTS sessions (id TEXT PRIMARY KEY,user_id TEXT NOT NULL REFERENCES users(id) ON DELETE CASCADE,token_hash TEXT NOT NULL UNIQUE,expires_at INTEGER NOT NULL);
+CREATE INDEX IF NOT EXISTS sessions_expiry_idx ON sessions(expires_at);
+CREATE TABLE IF NOT EXISTS content (id TEXT PRIMARY KEY,title TEXT NOT NULL,description TEXT NOT NULL,type TEXT NOT NULL CHECK(type IN ('texture','addon')),category TEXT NOT NULL,version TEXT,downloads INTEGER NOT NULL DEFAULT 0,cover_key TEXT,file_key TEXT,featured INTEGER NOT NULL DEFAULT 0,status TEXT NOT NULL DEFAULT 'pending' CHECK(status IN ('pending','published','rejected')),creator_id TEXT REFERENCES users(id),created_at INTEGER NOT NULL);
+CREATE INDEX IF NOT EXISTS content_public_idx ON content(type,status,featured,created_at);
+CREATE TABLE IF NOT EXISTS submissions (id TEXT PRIMARY KEY,user_id TEXT NOT NULL REFERENCES users(id),title TEXT NOT NULL,description TEXT NOT NULL,type TEXT NOT NULL,category TEXT NOT NULL,version TEXT,file_key TEXT NOT NULL,status TEXT NOT NULL DEFAULT 'pending',created_at INTEGER NOT NULL);
+CREATE TABLE IF NOT EXISTS audit_log (id TEXT PRIMARY KEY,actor_id TEXT,action TEXT NOT NULL,target_type TEXT,target_id TEXT,created_at INTEGER NOT NULL,details TEXT);
+CREATE TABLE IF NOT EXISTS coin_ledger (id TEXT PRIMARY KEY,user_id TEXT NOT NULL REFERENCES users(id),delta INTEGER NOT NULL,reason TEXT NOT NULL,reference_id TEXT UNIQUE,created_at INTEGER NOT NULL);
+CREATE TABLE IF NOT EXISTS orders (id TEXT PRIMARY KEY,user_id TEXT NOT NULL REFERENCES users(id),status TEXT NOT NULL,provider TEXT,provider_reference TEXT UNIQUE,total_minor INTEGER NOT NULL,currency TEXT NOT NULL,created_at INTEGER NOT NULL);
+CREATE TABLE IF NOT EXISTS screenshots (id TEXT PRIMARY KEY,user_id TEXT REFERENCES users(id),title TEXT NOT NULL,image_key TEXT NOT NULL,status TEXT NOT NULL DEFAULT 'pending',created_at INTEGER NOT NULL);
