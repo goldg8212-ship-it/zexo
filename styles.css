@@ -176,3 +176,20 @@ footer{border-color:#2b332d}
 @media(min-width:721px){
  .card-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
 }
+
+/* Character / skin selection */
+.character-showcase{display:grid;grid-template-columns:320px 1fr;gap:16px;margin-top:26px}
+.skin-preview{display:grid;gap:18px;align-content:start}
+.skin-preview-art{height:300px;border-radius:10px;background:linear-gradient(180deg,#202a22,#111511);display:grid;place-items:center;position:relative;overflow:hidden}
+.skin-preview-art:before{content:"";position:absolute;inset:0;background:repeating-linear-gradient(0deg,#ffffff08 0 1px,transparent 1px 8px),repeating-linear-gradient(90deg,#ffffff06 0 1px,transparent 1px 8px)}
+.skin-head{width:72px;height:72px;background:#c88f62;position:absolute;top:45px;box-shadow:inset 0 0 0 7px #a86e48}
+.skin-body{width:86px;height:110px;background:#55d64a;position:absolute;top:116px;box-shadow:inset 0 0 0 7px #267d2c}
+.skin-legs{width:86px;height:78px;background:linear-gradient(90deg,#263f88 0 48%,#17285d 48%);position:absolute;top:226px}
+.skin-preview-info h2{margin:10px 0 4px}.skin-preview-info p{color:var(--muted);font-size:11px;margin:0 0 16px}
+.skin-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+.skin-card{border:1px solid var(--line);background:var(--panel);border-radius:9px;padding:0;overflow:hidden;text-align:left;color:var(--white);cursor:pointer}
+.skin-card:hover{border-color:var(--green);transform:translateY(-2px)}
+.skin-card-art{height:135px;background:linear-gradient(145deg,#263326,#151b16);display:grid;place-items:center}
+.mini-skin{width:45px;height:78px;background:linear-gradient(#c88f62 0 30%,#55d64a 30% 66%,#263f88 66%);box-shadow:10px 0 #263f88}
+.skin-card-body{padding:10px;display:grid;gap:4px}.skin-card-body b{font-size:12px}.skin-card-body small{font-size:9px;color:var(--muted)}
+@media(max-width:720px){.character-showcase{grid-template-columns:1fr;gap:12px}.skin-preview{grid-template-columns:120px 1fr;gap:12px;padding:12px}.skin-preview-art{height:170px}.skin-head{width:42px;height:42px;top:25px;box-shadow:inset 0 0 0 4px #a86e48}.skin-body{width:52px;height:62px;top:65px;box-shadow:inset 0 0 0 4px #267d2c}.skin-legs{width:52px;height:48px;top:126px}.skin-preview-info{padding-top:4px}.skin-preview-info h2{font-size:18px}.skin-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}.skin-card-art{height:110px}}
