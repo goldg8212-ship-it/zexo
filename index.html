@@ -17,7 +17,7 @@
       <nav class="side-nav">
         <button class="nav-link active" data-page="home"><span>⌂</span> Home</button>
         <button class="nav-link" data-page="catalog"><span>▦</span> Catalog</button>
-        <button class="nav-link" data-page="account"><span>◉</span> Account</button>
+        <button class="nav-link" data-page="character"><span>♙</span> Character</button>
         <button class="nav-link" data-page="shop"><span>◇</span> Shop</button>
         <button class="nav-link" data-page="more"><span>＋</span> More</button>
       </nav>
@@ -26,11 +26,11 @@
     <main class="main">
       <header class="topbar">
         <div class="crumb"><span class="crumb-muted">ZEXO</span><span>/</span><strong id="crumb-page">HOME</strong></div>
-        <div class="top-actions"><span class="version-chip">BEDROCK EDITION</span><button class="icon-btn" aria-label="Open account" data-page="account">◉</button></div>
+        <div class="top-actions"><span class="version-chip">BEDROCK EDITION</span><button class="icon-btn" aria-label="Open more" data-page="more">•••</button></div>
       </header>
       <section class="page active" id="page-home">
         <div class="hero">
-          <div class="hero-copy"><div class="eyebrow"><i></i> YOUR WORLD. YOUR RULES.</div><h1>YOUR<br>WORLD. <span>YOUR WAY.</span></h1><p>Explore hand-picked Minecraft Bedrock texture packs and give your world a fresh look.</p><div class="hero-actions"><button class="btn btn-green" data-page="home">BROWSE TEXTURES <span>↗</span></button><button class="btn btn-ghost" data-page="catalog">BROWSE ADD-ONS</button></div><div class="hero-meta"><span>01 / TEXTURE PACKS</span><span>BUILT FOR BEDROCK</span></div></div>
+          <div class="hero-copy"><div class="eyebrow"><i></i> YOUR WORLD. YOUR RULES.</div><h1>YOUR<br>WORLD. <span>YOUR WAY.</span></h1><p>Explore hand-picked Minecraft Bedrock texture packs and give your world a fresh look.</p><div class="hero-actions"><button class="btn btn-green" data-page="home">BROWSE TEXTURES <span>↗</span></button></div><div class="hero-meta"><span>01 / TEXTURE PACKS</span><span>BUILT FOR BEDROCK</span></div></div>
           <div class="hero-art launcher-scene"><div class="scene-sun"></div><div class="scene-cloud cloud-one"></div><div class="scene-cloud cloud-two"></div><div class="scene-mountain mountain-one"></div><div class="scene-mountain mountain-two"></div><div class="scene-ground"></div><div class="scene-trees"></div><div class="art-caption">EXPLORE. BUILD. REIMAGINE.</div><div class="art-tag">ZEXO / BEDROCK</div></div>
         </div>
         <div class="section-head"><div><div class="eyebrow">PICK OF THE WEEK / 01</div><h2>Texture packs<span class="green">.</span></h2><p>Fresh looks for your next world.</p></div><button class="text-link" data-page="home">SEE ALL <span>↗</span></button></div>
@@ -43,7 +43,14 @@
         <div class="category-pills" id="catalog-categories"><button class="pill active" data-category="all">ALL ADD-ONS</button><button class="pill" data-category="gameplay">GAMEPLAY</button><button class="pill" data-category="mobs">MOBS</button><button class="pill" data-category="utility">UTILITY</button><button class="pill" data-category="visual">VISUAL</button></div>
         <div class="card-grid" id="catalog-grid"><div class="empty-state">Connect the ZEXO API to load add-ons.</div></div>
       </section>
-      <section class="page" id="page-account">
+      <section class="page" id="page-character">
+  <div class="page-intro"><div class="eyebrow">CHARACTER / 03</div><h1>CHOOSE YOUR <span>SKIN.</span></h1><p>Browse and select Minecraft skins with a simple mobile-first selection experience.</p></div>
+  <div class="character-showcase">
+    <div class="skin-preview panel"><div class="skin-preview-art" id="skin-preview-art"><div class="skin-head"></div><div class="skin-body"></div><div class="skin-legs"></div></div><div class="skin-preview-info"><div class="eyebrow">SELECTED SKIN</div><h2 id="selected-skin">ZEXO Explorer</h2><p id="selected-skin-meta">Classic Bedrock skin</p><button class="btn btn-green" id="select-skin">SELECT SKIN <span>✓</span></button></div></div>
+    <div><div class="filter-row"><div class="tabs" id="skin-filters"><button class="tab active" data-skin-filter="all">ALL</button><button class="tab" data-skin-filter="popular">POPULAR</button><button class="tab" data-skin-filter="new">NEW</button></div><label class="search"><span>⌕</span><input id="skin-search" placeholder="Search skins..." aria-label="Search skins"></label></div><div class="skin-grid" id="skin-grid"></div></div>
+  </div>
+</section>
+<section class="page" id="page-account">
         <div class="page-intro"><div class="eyebrow">YOUR SPACE / 03</div><h1>YOUR <span>ACCOUNT.</span></h1><p>Sign in to manage your library, downloads and creator uploads.</p></div>
         <div class="account-layout"><div class="panel account-panel"><div class="panel-kicker">ZEXO ID / ACCESS</div><h2 id="auth-title">Welcome back.</h2><p id="auth-subtitle">Sign in to continue to your account.</p><form id="auth-form"><label class="field">EMAIL ADDRESS<input name="email" type="email" placeholder="you@example.com" required></label><label class="field">PASSWORD<input name="password" type="password" placeholder="At least 8 characters" minlength="8" required></label><label class="field hidden" id="name-field">DISPLAY NAME<input name="name" placeholder="Your creator name"></label><button class="btn btn-green full" id="auth-submit">SIGN IN <span>↗</span></button></form><div class="auth-switch"><span id="auth-switch-text">New to ZEXO?</span> <button id="auth-switch">CREATE ACCOUNT</button></div><p class="fine-print">Authentication becomes available after the Cloudflare Worker is configured.</p></div><div class="panel account-side"><div class="side-icon">◈</div><h3>Your library, everywhere.</h3><p>Keep your downloads and purchases organized in one place.</p><div class="side-stat"><strong>01</strong><span>ONE ACCOUNT<br>ALL YOUR CONTENT</span></div></div></div>
         <div class="panel hidden" id="account-dashboard"><div class="section-head"><div><div class="eyebrow">SIGNED IN</div><h2 id="account-name">Your library.</h2></div><button class="btn btn-ghost" id="signout">SIGN OUT</button></div><div id="account-library"></div></div>
@@ -54,15 +61,19 @@
         <div class="shop-grid"><article class="shop-card"><div class="shop-icon">✦</div><div class="eyebrow">MEMBERSHIP</div><h3>ZEXO PREMIUM</h3><p>Unlock premium community perks when membership launches.</p><span class="status">NOT AVAILABLE YET</span></article><article class="shop-card"><div class="shop-icon">◈</div><div class="eyebrow">CURRENCY</div><h3>ZEXO COINS</h3><p>A future wallet for eligible digital purchases.</p><span class="status">PAYMENTS NOT CONFIGURED</span></article><article class="shop-card"><div class="shop-icon">▧</div><div class="eyebrow">DIGITAL GOODS</div><h3>CREATOR STORE</h3><p>Discover themes, cosmetics and creator products.</p><span class="status">COMING SOON</span></article></div>
       </section>
       <section class="page" id="page-more">
-        <div class="page-intro"><div class="eyebrow">MORE FROM ZEXO / 05</div><h1>MAKE YOUR <span>MARK.</span></h1><p>Share your creations, manage uploads and explore the community.</p></div>
-        <div class="more-grid"><button class="more-card" data-action="upload"><span>↥</span><b>UPLOAD CONTENT</b><small>Share a texture pack or add-on</small></button><button class="more-card" data-action="uploads"><span>▤</span><b>MY UPLOADS</b><small>Track your submitted creations</small></button><button class="more-card" data-action="screenshots"><span>▧</span><b>SCREENSHOTS</b><small>Explore worlds from the community</small></button><button class="more-card" data-action="help"><span>?</span><b>HELP & SUPPORT</b><small>Get help using ZEXO</small></button><button class="more-card hidden" id="admin-entry" data-action="admin"><span>⌘</span><b>ADMIN PANEL</b><small>Manage the marketplace</small></button></div>
-        <div class="panel upload-panel hidden" id="upload-panel"><div class="eyebrow">CREATOR STUDIO</div><h2>Submit a creation<span class="green">.</span></h2><form id="upload-form"><label class="field">CONTENT NAME<input name="title" required maxlength="90" placeholder="My awesome add-on"></label><label class="field">CONTENT TYPE<select name="type"><option value="texture">Texture pack</option><option value="addon">Add-on</option></select></label><label class="field">CATEGORY<select name="category"><option>visual</option><option>gameplay</option><option>mobs</option><option>utility</option></select></label><label class="field">MINECRAFT VERSION<input name="version" placeholder="e.g. 1.21 or 26.x"></label><label class="field">DESCRIPTION<textarea name="description" required rows="4" maxlength="2000" placeholder="Tell players what makes it special..."></textarea></label><label class="field">CONTENT FILE<input name="file" type="file" accept=".mcpack,.mcaddon,.zip" required></label><label class="field">COVER IMAGE<input name="cover" type="file" accept="image/png,image/jpeg,image/webp"></label><button class="btn btn-green" type="submit">SUBMIT FOR REVIEW ↗</button><p class="fine-print">Uploads are reviewed by ZEXO admins before publication. Max file size is configured by the server.</p></form></div>
-        <div class="panel hidden" id="more-result"></div>
-      </section>
-      <footer><a class="brand small-brand" href="#" data-page="home"><span class="brand-mark">Z</span><span>ZEXO<span class="brand-dot">.</span></span></a><span>BUILT FOR THE BLOCKS. © <span id="year"></span> ZEXO</span><span>BEDROCK COMMUNITY MARKETPLACE</span></footer>
+  <div class="page-intro"><div class="eyebrow">MORE / 05</div><h1>ZEXO <span>SETTINGS.</span></h1><p>Standard account and utility options for your ZEXO experience.</p></div>
+  <div class="more-grid">
+    <button class="more-card" data-page="account"><span>◉</span><b>ACCOUNT</b><small>Sign in, profile and library</small></button>
+    <button class="more-card" data-action="settings"><span>⚙</span><b>SETTINGS</b><small>Appearance and preferences</small></button>
+    <button class="more-card" data-action="help"><span>?</span><b>HELP & ABOUT</b><small>Support and information about ZEXO</small></button>
+    <button class="more-card" data-action="terms"><span>▤</span><b>TERMS & PRIVACY</b><small>Review ZEXO policies</small></button>
+  </div>
+  <div class="panel hidden" id="more-result"></div>
+</section>
+<footer><a class="brand small-brand" href="#" data-page="home"><span class="brand-mark">Z</span><span>ZEXO<span class="brand-dot">.</span></span></a><span>BUILT FOR THE BLOCKS. © <span id="year"></span> ZEXO</span><span>BEDROCK COMMUNITY MARKETPLACE</span></footer>
     </main>
   </div>
-  <nav class="mobile-nav"><button class="active" data-page="home"><span>⌂</span>HOME</button><button data-page="catalog"><span>▦</span>CATALOG</button><button data-page="account"><span>◉</span>ACCOUNT</button><button data-page="shop"><span>◇</span>SHOP</button><button data-page="more"><span>＋</span>MORE</button></nav>
+  <nav class="mobile-nav"><button class="active" data-page="home"><span>⌂</span>HOME</button><button data-page="catalog"><span>▦</span>CATALOG</button><button data-page="character"><span>♙</span>CHARACTER</button><button data-page="shop"><span>◇</span>SHOP</button><button data-page="more"><span>•••</span>MORE</button></nav>
   <div class="toast" id="toast" role="status"></div>
   <script src="/app.js"></script>
 </body></html>
